@@ -3,7 +3,6 @@ package com.nbarraille.jspotify.main;
 import java.lang.reflect.Method;
 import java.util.Locale;
 
-import com.sun.jna.FunctionMapper;
 import com.sun.jna.NativeLibrary;
 
 /**
@@ -12,7 +11,9 @@ import com.sun.jna.NativeLibrary;
  * @author nbarraille
  *
  */
-public class SpotifyFunctionMapper implements FunctionMapper{
+import com.sun.jna.win32.StdCallFunctionMapper;
+
+public class SpotifyFunctionMapper extends StdCallFunctionMapper{
 
 	/**
 	 * Maps Java methods name to C++ methods name.

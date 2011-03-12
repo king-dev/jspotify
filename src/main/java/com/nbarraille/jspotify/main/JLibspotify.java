@@ -36,220 +36,223 @@ public interface JLibspotify extends StdCallLibrary{
 	// Methods definitions
 	
 	// Album methods
-	boolean albumIsLoaded(sp_album album);
-	boolean albumIsAvailable(sp_album album);
-	sp_artist albumArtist(sp_album album);
-	String albumCover(sp_album album);
-	String albumName(sp_album album);
-	int albumYear(sp_album album);
-	int albumType(sp_album album);
-	void albumAddRef(sp_album album);
-	void albumRelease(sp_album album);
+	boolean sp_album_is_loaded(sp_album album);
+	boolean sp_album_is_available(sp_album album);
+	sp_artist sp_album_artist(sp_album album);
+	String sp_album_cover(sp_album album);
+	String sp_album_name(sp_album album);
+	int sp_album_year(sp_album album);
+	int sp_album_type(sp_album album);
+	void sp_album_add_ref(sp_album album);
+	void sp_album_release(sp_album album);
 	
 	// Albumbrowse methods
-	sp_albumbrowse albumbrowseCreate(sp_session session, sp_album album, AlbumbrowseComplete callback, Pointer userdata);
-	boolean albumbrowseIsLoaded(sp_albumbrowse alb);
-	int albumbrowseError(sp_albumbrowse alb);
-	sp_album albumbrowseAlbum(sp_albumbrowse alb);
-	sp_artist albumbrowseArtist(sp_albumbrowse alb);
-	int albumbrowseNumCopyrights(sp_albumbrowse alb);
-	String albumbrowseCopyright(sp_albumbrowse alb, int index);
-	int albumbrowseNumTracks(sp_albumbrowse alb);
-	sp_track albumbrowseTrack(sp_albumbrowse alb, int index);
-	String albumbrowseReview(sp_albumbrowse alb);
-	void albumbrowseAddRef(sp_albumbrowse alb);
-	void albumbrowseRelease(sp_albumbrowse alb);
+	sp_albumbrowse sp_albumbrowse_create(sp_session session, sp_album album, AlbumbrowseComplete callback, Pointer userdata);
+	boolean sp_albumbrowse_is_loaded(sp_albumbrowse alb);
+	int sp_albumbrowse_error(sp_albumbrowse alb);
+	sp_album sp_albumbrowse_album(sp_albumbrowse alb);
+	sp_artist sp_albumbrowse_artist(sp_albumbrowse alb);
+	int sp_albumbrowse_num_copyrights(sp_albumbrowse alb);
+	String sp_albumbrowse_copyright(sp_albumbrowse alb, int index);
+	int sp_albumbrowse_num_tracks(sp_albumbrowse alb);
+	sp_track sp_albumbrowse_track(sp_albumbrowse alb, int index);
+	String sp_albumbrowse_review(sp_albumbrowse alb);
+	void sp_albumbrowse_add_ref(sp_albumbrowse alb);
+	void sp_albumbrowse_release(sp_albumbrowse alb);
 	
 	// Artist methods
-	String artistName(sp_artist artist);
-	boolean artistIsLoaded(sp_artist artist);
-	void artistAddRef(sp_artist artist);
-	void artistRelease(sp_artist artist);
+	String sp_artist_name(sp_artist artist);
+	boolean sp_artist_is_loaded(sp_artist artist);
+	void sp_artist_add_ref(sp_artist artist);
+	void sp_artist_release(sp_artist artist);
 	
 	// Artistbrowse methods
-	sp_artistbrowse artistbrowseCreate(sp_session session, sp_artist artist, ArtistbrowseComplete callback, Pointer userdata);
-	boolean artistbrowseIsLoaded(sp_artistbrowse arb);
-	int artistbrowseError(sp_artistbrowse arb);
-	sp_artist artistbrowseArtist(sp_artistbrowse arb);
-	int artistbrowseNumPortraits(sp_artistbrowse arb);
-	String artistbrowsePortrait(sp_artistbrowse arb, int index);
-	int artistbrowseNumTracks(sp_artistbrowse arb);
-	sp_track artistbrowseTrack(sp_artistbrowse arb, int index);
-	int artistbrowseNumAlbums(sp_artistbrowse arb);
-	sp_album artistbrowseAlbum(sp_artistbrowse arb, int index);
-	int artistbrowseNumSimilarArtists(sp_artistbrowse arb);
-	sp_artist artistbrowseSimilarArtist(sp_artistbrowse arb, int index);
-	String artistbrowseBiography(sp_artistbrowse arb);
-	void artistbrowseAddReg(sp_artistbrowse arb);
-	void artistbrowseRelease(sp_artistbrowse arb);
+	sp_artistbrowse sp_artistbrowse_create(sp_session session, sp_artist artist, ArtistbrowseComplete callback, Pointer userdata);
+	boolean sp_artistbrowse_is_loaded(sp_artistbrowse arb);
+	int sp_artistbrowse_error(sp_artistbrowse arb);
+	sp_artist sp_artistbrowse_artist(sp_artistbrowse arb);
+	int sp_artistbrowse_num_portraits(sp_artistbrowse arb);
+	String sp_artistbrowse_portrait(sp_artistbrowse arb, int index);
+	int sp_artistbrowse_num_tracks(sp_artistbrowse arb);
+	sp_track sp_artistbrowse_track(sp_artistbrowse arb, int index);
+	int sp_artistbrowse_num_albums(sp_artistbrowse arb);
+	sp_album sp_artistbrowse_album(sp_artistbrowse arb, int index);
+	int sp_artistbrowse_num_similar_artists(sp_artistbrowse arb);
+	sp_artist sp_artistbrowse_similar_artist(sp_artistbrowse arb, int index);
+	String sp_artistbrowse_biography(sp_artistbrowse arb);
+	void sp_artistbrowse_add_ref(sp_artistbrowse arb);
+	void sp_artistbrowse_release(sp_artistbrowse arb);
 	
 	// Image methods
-	sp_image imageCreate(sp_session session, String image_id);
-	void imageAddLoadCallback(sp_image image, ImageLoaded callback, Pointer userdata);
-	void imageRemoveLoadCallback(sp_image image, ImageLoaded callback, Pointer userdata);
-	boolean imageIsLoaded(sp_image image);
-	int imageError(sp_image image);
-	int imageFormat(sp_image image);
-	Buffer imageData(sp_image image, int data_size);
-	String imageImageId(sp_image image);
-	void imageAddRef(sp_image image);
-	void imageRelease(sp_image image);
+	sp_image sp_image_create(sp_session session, String image_id);
+	void sp_image_add_load_callback(sp_image image, ImageLoaded callback, Pointer userdata);
+	void sp_image_remove_load_callback(sp_image image, ImageLoaded callback, Pointer userdata);
+	boolean sp_image_is_loaded(sp_image image);
+	int sp_image_error(sp_image image);
+	int sp_image_format(sp_image image);
+	Buffer sp_image_data(sp_image image, int data_size);
+	String sp_image_image_id(sp_image image);
+	void sp_image_add_ref(sp_image image);
+	void sp_image_release(sp_image image);
 	
 	// Search methods
-	sp_search seachCreate(sp_session session, String query, int track_offset, int track_count,int album_offset, 
+	sp_search sp_seach_create(sp_session session, String query, int track_offset, int track_count,int album_offset, 
 			int album_count, int artist_offset, int artist_count, SearchComplete callback, Pointer userdata);
-	sp_search radioSearchCreate(sp_session session, int from_year, int to_year, int genres,
+	sp_search sp_radio_search_create(sp_session session, int from_year, int to_year, int genres,
 			SearchComplete callback, Pointer userdata);
-	boolean searchIsLoaded(sp_search search);
-	int searchError(sp_search search);
-	int searchNumTracks(sp_search search);
-	sp_track searchTrack(sp_search search, int index);
-	int searchNumAlbums(sp_search search);
-	sp_album searchAlbum(sp_search search, int index);
-	int searchNumArtists(sp_search search);
-	sp_artist searchArtist(sp_search search, int index);
-	String searchQuery(sp_search search);
-	String searchDidYouMean(sp_search search);
-	int searchTotalTracks(sp_search search);
-	int searchTotalAlbums(sp_search search);
-	int searchTotalArtists(sp_search search);
-	void searchAddRef(sp_search search);
-	void searchRelease(sp_search search);
+	boolean sp_search_is_loaded(sp_search search);
+	int sp_search_error(sp_search search);
+	int sp_search_num_tracks(sp_search search);
+	sp_track sp_search_track(sp_search search, int index);
+	int sp_search_num_albums(sp_search search);
+	sp_album sp_search_album(sp_search search, int index);
+	int sp_search_num_artists(sp_search search);
+	sp_artist sp_search_artist(sp_search search, int index);
+	String sp_search_query(sp_search search);
+	String sp_search_did_you_mean(sp_search search);
+	int sp_search_total_tracks(sp_search search);
+	int sp_search_total_albums(sp_search search);
+	int sp_search_total_artists(sp_search search);
+	void sp_search_add_ref(sp_search search);
+	void sp_search_release(sp_search search);
 	
 	// Playlist methods
-	boolean playlistIsLoaded(sp_playlist playlist);
-	void playlistAddCallbacks(sp_playlist playlist, sp_playlist_callbacks callbacks, Pointer userdata);
-	void playlistRemoveCallbacks(sp_playlist playlist, sp_playlist_callbacks callbacks, Pointer userdata);
-	int playlistNumTracks(sp_playlist playlist);
-	sp_track playlistTrack(sp_playlist playlist, int index);
-	int playlistTrackCreateTime(sp_playlist playlist, int index);
-	sp_user playlistTrackCreator(sp_playlist playlist, int index);
-	boolean playlistTrackSeen(sp_playlist playlist, int index);
-	int playlistTrackSetSeen(sp_playlist playlist, int index, boolean seen);
-	String playlistTrackMessage(sp_playlist playlist, int index);
-	String playlistName(sp_playlist playlist);
-	int playlistRename(sp_playlist playlist, String new_name);
-	sp_user playlistOwner(sp_playlist playlist);
-	boolean playlistIsCollaborative(sp_playlist playlist);
-	void playlistSetCollaborative(sp_playlist playlist, boolean collaborative);
-	void playlistSetAutolinkTracks(sp_playlist playlist, boolean link);
-	String playlistGetDescription(sp_playlist playlist);
-	boolean playlistGetImage(sp_playlist playlist, Buffer image);
-	boolean playlistHasPendingChange(sp_playlist playlist);
-	int playlistAddTracks(sp_playlist playlist, sp_track[] tracks, int num_tracks, sp_session session);
-	int playlistRemoveTracks(sp_playlist playlist, int[] tracks, int num_tracks);
-	int playlistReorderTracks(sp_playlist playlist, int[] tracks, int num_tracks, int new_position);
-	int playlistNumSubscribers(sp_playlist playlist);
-	sp_subscribers playlistSubscribers(sp_playlist playlist);
-	void playlistSubscribersFree(sp_subscribers subscribers);
-	void playlistUpdateSubscribers(sp_session session, sp_playlist playlist);
-	boolean playlistIsInRam(sp_session session, sp_playlist playlist);
-	void playlistSetInRam(sp_session session, sp_playlist playlist, boolean in_ram);
-	sp_playlist playlistCreate(sp_session session, sp_link link);
-	void playlistAddRef(sp_playlist playlist);
-	void playlistRelease(sp_playlist playlist);
-	void playlistcontainerAddCallbacks(sp_playlistcontainer pc, sp_playlistcontainer_callbacks callbacks, Pointer userdata);
-	void splaylistcontainerRemoveCallbacks(sp_playlistcontainer pc, sp_playlistcontainer_callbacks callbacks, Pointer userdata);
-	int playlistcontainerNumPlaylists(sp_playlistcontainer pc);
-	sp_playlist playlistcontainerPlaylist(sp_playlistcontainer pc, int index);
-	int playlistcontainerPlaylistType(sp_playlistcontainer pc, int index);
-	int playlistcontainerPlaylistFolderName(sp_playlistcontainer pc, int index, String buffer, int buffer_size);
-	int playlistcontainerPlaylistFolderId(sp_playlistcontainer pc, int index);
-	sp_playlist playlistcontainerAddNewPlaylist(sp_playlistcontainer pc, String name);
-	sp_playlist playlistcontainerAddPlaylist(sp_playlistcontainer pc, sp_link link);
-	int playlistcontainerRemovePlaylist(sp_playlistcontainer pc, int index);
-	int playlistcontainerMovePlaylist(sp_playlistcontainer pc, int index, int new_position, boolean dry_run);
-	int playlistcontainerAddFolder(sp_playlistcontainer pc, int index, String name);
-	sp_user playlistcontainerOwner(sp_playlistcontainer pc);
-	void playlistcontainerAddRef(sp_playlistcontainer pc);
-	void playlistcontainerRelease(sp_playlistcontainer pc);
+	boolean sp_playlist_is_loaded(sp_playlist playlist);
+	void sp_playlist_add_callbacks(sp_playlist playlist, sp_playlist_callbacks callbacks, Pointer userdata);
+	void sp_playlist_remove_callbacks(sp_playlist playlist, sp_playlist_callbacks callbacks, Pointer userdata);
+	int sp_playlist_num_tracks(sp_playlist playlist);
+	sp_track sp_playlist_track(sp_playlist playlist, int index);
+	int sp_playlist_track_create_time(sp_playlist playlist, int index);
+	sp_user sp_playlist_track_creator(sp_playlist playlist, int index);
+	boolean sp_playlist_track_seen(sp_playlist playlist, int index);
+	int sp_playlist_track_set_seen(sp_playlist playlist, int index, boolean seen);
+	String sp_playlist_track_message(sp_playlist playlist, int index);
+	String sp_playlist_name(sp_playlist playlist);
+	int sp_playlist_rename(sp_playlist playlist, String new_name);
+	sp_user sp_playlist_owner(sp_playlist playlist);
+	boolean sp_playlist_is_collaborative(sp_playlist playlist);
+	void sp_playlist_set_collaborative(sp_playlist playlist, boolean collaborative);
+	void sp_playlist_set_autolink_tracks(sp_playlist playlist, boolean link);
+	String sp_playlist_get_description(sp_playlist playlist);
+	boolean sp_playlist_get_image(sp_playlist playlist, Buffer image);
+	boolean sp_playlist_has_pending_change(sp_playlist playlist);
+	int sp_playlist_add_tracks(sp_playlist playlist, sp_track[] tracks, int num_tracks, sp_session session);
+	int sp_playlist_remove_tracks(sp_playlist playlist, int[] tracks, int num_tracks);
+	int sp_playlist_reorder_tracks(sp_playlist playlist, int[] tracks, int num_tracks, int new_position);
+	int sp_playlist_num_subscribers(sp_playlist playlist);
+	sp_subscribers sp_playlist_subscribers(sp_playlist playlist);
+	void sp_playlist_subscribers_free(sp_subscribers subscribers);
+	void sp_playlist_update_subscribers(sp_session session, sp_playlist playlist);
+	boolean sp_playlist_is_in_ram(sp_session session, sp_playlist playlist);
+	void sp_playlist_set_in_ram(sp_session session, sp_playlist playlist, boolean in_ram);
+	sp_playlist sp_playlist_create(sp_session session, sp_link link);
+	void sp_playlist_add_ref(sp_playlist playlist);
+	void sp_playlist_release(sp_playlist playlist);
+	void sp_playlistcontainer_add_callbacks(sp_playlistcontainer pc, sp_playlistcontainer_callbacks callbacks, Pointer userdata);
+	void sp_splaylistcontainer_remove_callbacks(sp_playlistcontainer pc, sp_playlistcontainer_callbacks callbacks, Pointer userdata);
+	int sp_playlistcontainer_num_playlists(sp_playlistcontainer pc);
+	sp_playlist sp_playlistcontainer_playlist(sp_playlistcontainer pc, int index);
+	int sp_playlistcontainer_playlist_type(sp_playlistcontainer pc, int index);
+	int sp_playlistcontainer_playlist_folder_name(sp_playlistcontainer pc, int index, String buffer, int buffer_size);
+	int sp_playlistcontainer_playlist_folder_id(sp_playlistcontainer pc, int index);
+	sp_playlist sp_playlistcontainer_add_new_playlist(sp_playlistcontainer pc, String name);
+	sp_playlist sp_playlistcontainer_add_playlist(sp_playlistcontainer pc, sp_link link);
+	int sp_playlistcontainer_remove_playlist(sp_playlistcontainer pc, int index);
+	int sp_playlistcontainer_move_playlist(sp_playlistcontainer pc, int index, int new_position, boolean dry_run);
+	int sp_playlistcontainer_add_folder(sp_playlistcontainer pc, int index, String name);
+	sp_user sp_playlistcontainer_owner(sp_playlistcontainer pc);
+	void sp_playlistcontainer_add_ref(sp_playlistcontainer pc);
+	void sp_playlistcontainer_release(sp_playlistcontainer pc);
 	
 	// Toplist methods
-	sp_toplistbrowse toplistbrowseCreate(sp_session session, int type, int region, String username, 
+	sp_toplistbrowse sp_toplistbrowse_create(sp_session session, int type, int region, String username, 
 			ToplistbrowseComplete callback, Pointer userdata);
-	boolean toplistbrowseIsLoaded(sp_toplistbrowse tlb);
-	int toplistbrowseError(sp_toplistbrowse tlb);
-	void toplistbrowseAddRef(sp_toplistbrowse tlb);
-	void toplistbrowseRelease(sp_toplistbrowse tlb);
-	int toplistbrowseNumArtists(sp_toplistbrowse tlb);
-	sp_artist toplistbrowseArtist(sp_toplistbrowse tlb, int index);
-	int toplistbrowseNumAlbums(sp_toplistbrowse tlb);
-	sp_album toplistbrowseAlbum(sp_toplistbrowse tlb, int index);
-	int toplistbrowseNumTracks(sp_toplistbrowse tlb);
-	sp_track toplistbrowseTrack(sp_toplistbrowse tlb, int index);
+	boolean sp_toplistbrowse_is_loaded(sp_toplistbrowse tlb);
+	int sp_toplistbrowse_error(sp_toplistbrowse tlb);
+	void sp_toplistbrowse_add_ref(sp_toplistbrowse tlb);
+	void sp_toplistbrowse_release(sp_toplistbrowse tlb);
+	int sp_toplistbrowse_num_artists(sp_toplistbrowse tlb);
+	sp_artist sp_toplistbrowse_artist(sp_toplistbrowse tlb, int index);
+	int sp_toplistbrowse_num_albums(sp_toplistbrowse tlb);
+	sp_album sp_toplistbrowse_album(sp_toplistbrowse tlb, int index);
+	int sp_toplistbrowse_num_tracks(sp_toplistbrowse tlb);
+	sp_track sp_toplistbrowse_track(sp_toplistbrowse tlb, int index);
 	
 	// User methods
-	String userCanonicalName(sp_user user);
-	String userDisplayName(sp_user user);
-	boolean userIsLoaded(sp_user user);
-	String userFullName(sp_user user);
-	String userPicture(sp_user user);
-	int userRelationType(sp_session session, sp_user user);
-	void userAddReg(sp_user user);
-	void userRelease(sp_user user);
+	String sp_user_canonical_name(sp_user user);
+	String sp_user_display_name(sp_user user);
+	boolean sp_user_is_loaded(sp_user user);
+	String sp_user_full_name(sp_user user);
+	String sp_user_picture(sp_user user);
+	int sp_user_relation_type(sp_session session, sp_user user);
+	void sp_user_add_ref(sp_user user);
+	void sp_user_release(sp_user user);
 	
 	// Inbox methods
-	sp_inbox inboxPostTracks(sp_session session, String user, sp_track[] tracks, int num_tracks, String message,
+	sp_inbox sp_inbox_post_tracks(sp_session session, String user, sp_track[] tracks, int num_tracks, String message,
 			InboxpostComplete callback, Pointer userdata);
-	int inboxError(sp_inbox inbox);
-	void inboxAddRef(sp_inbox inbox);
-	void inboxRelease(sp_inbox inbox);
+	int sp_inbox_error(sp_inbox inbox);
+	void sp_inbox_add_ref(sp_inbox inbox);
+	void sp_inbox_release(sp_inbox inbox);
 	
 	// Link methods
-	sp_link linkCreateFromString(String link);
-	sp_link linkCreateFromTrack(sp_track track, int offset);
-	sp_link linkCreateFromAlbum(sp_album album);
-	sp_link linkCreateFromArtist(sp_artist artist);
-	sp_link linkCreateFromSearch(sp_search search);
-	sp_link linkCreateFromPlaylist(sp_playlist playlist);
-	sp_link linkCreateFromUser(sp_user user);
-	int linkAsString(sp_link link, String buffer, int buffer_size);
-	int linkType(sp_link link);
-	sp_track linkAsTrack(sp_link link);
-	sp_album linkAsAlbum(sp_link link);
-	sp_artist linkAsArtist(sp_link link);
-	sp_user linkAsUser(sp_link link);
-	void linkAddRef(sp_link link);
-	void linkRelease(sp_link link);
+	sp_link sp_link_create_from_string(String link);
+	sp_link sp_link_create_from_track(sp_track track, int offset);
+	sp_link sp_link_create_from_album(sp_album album);
+	sp_link sp_link_create_from_artist(sp_artist artist);
+	sp_link sp_link_create_from_search(sp_search search);
+	sp_link sp_link_create_from_playlist(sp_playlist playlist);
+	sp_link sp_link_create_from_user(sp_user user);
+	int sp_link_as_string(sp_link link, String buffer, int buffer_size);
+	int sp_link_type(sp_link link);
+	sp_track sp_link_as_track(sp_link link);
+	sp_album sp_link_as_album(sp_link link);
+	sp_artist sp_link_as_artist(sp_link link);
+	sp_user sp_link_as_user(sp_link link);
+	void sp_link_add_ref(sp_link link);
+	void sp_link_release(sp_link link);
 	
 	// Track methods
-	boolean trackIsLoaded(sp_track track);
-	int trackError(sp_track track);
-	boolean trackIsAvailable(sp_session session, sp_track track);
-	boolean trackIsLocal(sp_track track);
-	boolean trackIsAutolinked(sp_session session, sp_track track);
-	boolean trackIsStarred(sp_session session, sp_track track);
-	void trackSetStarred(sp_session session, sp_track track);
-	int trackNumArtists(sp_track track);
-	sp_artist trackArtist(sp_track track, int index);
-	sp_album trackAlbum(sp_track track);
-	String trackName(sp_track track);
-	int trackDuration(sp_track track);
-	int trackPopularity(sp_track track);
-	int trackDisc(sp_track track);
-	int trackIndex(sp_track track);
-	sp_track localtrackCreate(String artist, String title, String album, int length);
-	void trackAddRef(sp_track track);
-	void trackRelease(sp_track track);
+	boolean sp_track_is_loaded(sp_track track);
+	int sp_track_error(sp_track track);
+	boolean sp_track_is_available(sp_session session, sp_track track);
+	boolean sp_track_is_local(sp_track track);
+	boolean sp_track_is_autolinked(sp_session session, sp_track track);
+	boolean sp_track_is_starred(sp_session session, sp_track track);
+	void sp_track_set_starred(sp_session session, sp_track track);
+	int sp_track_num_artists(sp_track track);
+	sp_artist sp_track_artist(sp_track track, int index);
+	sp_album sp_track_album(sp_track track);
+	String sp_track_name(sp_track track);
+	int sp_track_duration(sp_track track);
+	int sp_track_popularity(sp_track track);
+	int sp_track_disc(sp_track track);
+	int sp_track_index(sp_track track);
+	sp_track sp_localtrack_create(String artist, String title, String album, int length);
+	void sp_track_add_ref(sp_track track);
+	void sp_track_release(sp_track track);
 	
 	// Session methods
-	int sessionCreate(sp_session_config config, PointerByReference sess);
-	void sessionRelease(sp_session session);
-	int sessionLogin(sp_session session, String username, String password);
+	int sp_session_create(sp_session_config config, PointerByReference sess);
+	void sp_session_release(sp_session session);
+	int sp_session_login(sp_session session, String username, String password);
 	sp_user sp_session_user(sp_session session);
 	void sp_session_logout(sp_session session);
-	int sessionConnectionstate(sp_session session);
-	Pointer sessionUserdata(sp_session session);
-	void sessionSetCacheSize(sp_session session, int size);
-	void sessionProcessEvents(sp_session session, IntByReference next_timeout);
-	int sessionPlayerLoad(sp_session session, sp_track track);
-	void sessionPlayerSeek(sp_session session, int offset);
-	void sessionPlayerPlay(sp_session session, boolean play);
-	void sessionPlayerUnload(sp_session session);
-	int sessionPlayerPrefetch(sp_session session, sp_track track);
-	sp_playlistcontainer sessionPublishedcontainerForUserCreate(sp_session session, String canonical_username);
-	void sessionPreferredBitrate(sp_session session, int bitrate);
-	int sessionNumFriends(sp_session session);
-	sp_user sessionFriend(sp_session session, int index);
+	int sp_session_connectionstate(sp_session session);
+	Pointer sp_session_userdata(sp_session session);
+	void sp_session_set_cache_size(sp_session session, int size);
+	void sp_session_process_events(sp_session session, IntByReference next_timeout);
+	int sp_session_player_load(sp_session session, sp_track track);
+	void sp_session_player_seek(sp_session session, int offset);
+	void sp_session_player_play(sp_session session, boolean play);
+	void sp_session_player_unload(sp_session session);
+	int sp_session_player_prefetch(sp_session session, sp_track track);
+	sp_playlistcontainer sp_session_publishedcontainer_for_user_create(sp_session session, String canonical_username);
+	void sp_session_preferred_bitrate(sp_session session, int bitrate);
+	int sp_session_num_friends(sp_session session);
+	sp_user sp_session_friend(sp_session session, int index);
+	
+	// Error methods
+	String sp_error_message(int error);
 	
 }

@@ -4,14 +4,24 @@
   <artifactId>jspotify</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <description>Spotify for Java</description>
+  <repositories>
+  	<repository>
+  		<id>Nuxeo.org</id>
+  		<url>https://maven.nuxeo.org/nexus/content/groups/public/</url>
+  	</repository>
+  </repositories>
   <dependencies>
   	<dependency>
-  		<groupId>com.sun.jna</groupId>
+  		<groupId>net.java.dev.jna</groupId>
   		<artifactId>jna</artifactId>
-  		<version>${com.sun.jna.version}</version>
+  		<version>${net.java.dev.jna.version}</version>
   	</dependency>
   </dependencies>
+  <dependencyManagement>
+  	<dependencies>
+  	</dependencies>
+  </dependencyManagement>
   <properties>
-  	<com.sun.jna.version>3.0.9</com.sun.jna.version>
+  	<net.java.dev.jna.version>3.2.7</net.java.dev.jna.version>
   </properties>
 </project>
