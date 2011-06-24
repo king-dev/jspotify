@@ -26,23 +26,23 @@ import com.nbarraille.jspotify.model.sp_playlistcontainer_callbacks;
 import com.nbarraille.jspotify.model.sp_session;
 import com.nbarraille.jspotify.model.sp_session_callbacks;
 import com.nbarraille.jspotify.model.sp_session_config;
-import com.nbarraille.jspotify.model.sp_user;
 import com.sun.jna.Library;
 import com.sun.jna.Memory;
 import com.sun.jna.Native;
+import com.sun.jna.NativeLibrary;
 import com.sun.jna.Pointer;
 import com.sun.jna.ptr.PointerByReference;
 import com.sun.jna.win32.StdCallFunctionMapper;
 
 
 public class Test{
-	private static final int SPOTIFY_API_VERSION = 7;
+	private static final int SPOTIFY_API_VERSION = 8;
 	private static boolean mtNotification = false;
 	private static sp_session_callbacks.ByReference sessCallbacks;
 	private static sp_playlistcontainer_callbacks.ByReference pcCallbacks;
 	
 	static{
-		System.loadLibrary("libspotify");
+		NativeLibrary.getInstance("libspotify");
 	}
 	
 	public static void main(String[] args) throws InterruptedException{

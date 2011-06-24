@@ -26,12 +26,12 @@ import com.nbarraille.jspotify.model.sp_subscribers;
 import com.nbarraille.jspotify.model.sp_toplistbrowse;
 import com.nbarraille.jspotify.model.sp_track;
 import com.nbarraille.jspotify.model.sp_user;
+import com.sun.jna.Library;
 import com.sun.jna.Pointer;
 import com.sun.jna.ptr.IntByReference;
 import com.sun.jna.ptr.PointerByReference;
-import com.sun.jna.win32.StdCallLibrary;
 
-public interface JLibspotify extends StdCallLibrary{
+public interface JLibspotify extends Library {
 	
 	// Methods definitions
 	
