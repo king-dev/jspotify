@@ -140,7 +140,7 @@ public interface JLibspotify extends Library {
 	String sp_playlist_get_description(sp_playlist playlist);
 	boolean sp_playlist_get_image(sp_playlist playlist, Buffer image);
 	boolean sp_playlist_has_pending_changes(sp_playlist playlist);
-	int sp_playlist_add_tracks(sp_playlist playlist, sp_track[] tracks, int num_tracks, sp_session session);
+	int sp_playlist_add_tracks(sp_playlist playlist, sp_track[] tracks, int num_tracks, int position, sp_session session);
 	int sp_playlist_remove_tracks(sp_playlist playlist, int[] tracks, int num_tracks);
 	int sp_playlist_reorder_tracks(sp_playlist playlist, int[] tracks, int num_tracks, int new_position);
 	int sp_playlist_num_subscribers(sp_playlist playlist);
