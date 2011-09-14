@@ -16,6 +16,7 @@ import com.nbarraille.jspotify.callbacks.TracksRemoved;
 import com.sun.jna.Structure;
 
 public class sp_playlist_callbacks extends Structure {
+	public static class ByReference extends sp_playlist_callbacks implements Structure.ByReference { }
 	public TracksAdded tracks_added; // Called when one or more tracks have been added to a playlist.
 	public TracksRemoved tracks_removed; // Called when one or more tracks have been removed from a playlist.
 	public TracksMoved tracks_moved; // Called when one or more tracks have been moved within a playlist.

@@ -36,13 +36,13 @@ import com.sun.jna.win32.StdCallFunctionMapper;
 
 
 public class Test{
-	private static final int SPOTIFY_API_VERSION = 8;
+	private static final int SPOTIFY_API_VERSION = 9;
 	private static boolean mtNotification = false;
 	private static sp_session_callbacks.ByReference sessCallbacks;
 	private static sp_playlistcontainer_callbacks.ByReference pcCallbacks;
 	
 	static{
-		NativeLibrary.getInstance("libspotify");
+		NativeLibrary.getInstance("spotify");
 	}
 	
 	public static void main(String[] args) throws InterruptedException{
@@ -50,13 +50,13 @@ public class Test{
 		Map<String, Object> options = new HashMap<String, Object>();
 		options.put(Library.OPTION_FUNCTION_MAPPER, new StdCallFunctionMapper(){});
 		
-		JLibspotify lib = (JLibspotify)Native.loadLibrary("libspotify", JLibspotify.class, options);
+		JLibspotify lib = (JLibspotify)Native.loadLibrary("spotify", JLibspotify.class, options);
 		int errorId = 0;
 			
 		sp_session_config cfg = new sp_session_config();
 		cfg.api_version = SPOTIFY_API_VERSION;
-		cfg.cache_location = "C:\\jspotify";
-		cfg.settings_location = "C:\\jspotify";
+		cfg.cache_location = System.getProperty("java.io.tmpdir") + "/jspotify";
+		cfg.settings_location = System.getProperty("java.io.tmpdir") + "/jspotify";
 		Pointer appKeyPtr = new Memory(AppKey.size());
 		appKeyPtr.write(0, AppKey.toBytes(), 0, AppKey.size());
 		cfg.application_key = appKeyPtr;
@@ -79,7 +79,7 @@ public class Test{
 		
 		
 		System.out.println("Logging in");
-		lib.sp_session_login(session, "nbarraille", "waN779hkGMUGNKx");
+		lib.sp_session_login(session, "username", "password", false);
 		/*
 		sp_user user;
 		while((user = lib.sp_session_user(session)) == null){}

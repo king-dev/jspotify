@@ -27,12 +27,16 @@ import com.nbarraille.jspotify.model.sp_toplistbrowse;
 import com.nbarraille.jspotify.model.sp_track;
 import com.nbarraille.jspotify.model.sp_user;
 import com.sun.jna.Library;
+import com.sun.jna.Memory;
+import com.sun.jna.Native;
 import com.sun.jna.Pointer;
 import com.sun.jna.ptr.IntByReference;
 import com.sun.jna.ptr.PointerByReference;
 
 public interface JLibspotify extends Library {
 	
+	public static final int SPOTIFY_API_VERSION = 9;
+	public static final JLibspotify INSTANCE = (JLibspotify)Native.loadLibrary("spotify", JLibspotify.class);
 	// Methods definitions
 	
 	// Album methods
@@ -135,7 +139,7 @@ public interface JLibspotify extends Library {
 	void sp_playlist_set_autolink_tracks(sp_playlist playlist, boolean link);
 	String sp_playlist_get_description(sp_playlist playlist);
 	boolean sp_playlist_get_image(sp_playlist playlist, Buffer image);
-	boolean sp_playlist_has_pending_change(sp_playlist playlist);
+	boolean sp_playlist_has_pending_changes(sp_playlist playlist);
 	int sp_playlist_add_tracks(sp_playlist playlist, sp_track[] tracks, int num_tracks, sp_session session);
 	int sp_playlist_remove_tracks(sp_playlist playlist, int[] tracks, int num_tracks);
 	int sp_playlist_reorder_tracks(sp_playlist playlist, int[] tracks, int num_tracks, int new_position);
@@ -163,6 +167,7 @@ public interface JLibspotify extends Library {
 	sp_user sp_playlistcontainer_owner(sp_playlistcontainer pc);
 	void sp_playlistcontainer_add_ref(sp_playlistcontainer pc);
 	void sp_playlistcontainer_release(sp_playlistcontainer pc);
+	boolean sp_playlistcontainer_is_loaded(sp_playlistcontainer pc);
 	
 	// Toplist methods
 	sp_toplistbrowse sp_toplistbrowse_create(sp_session session, int type, int region, String username, 
@@ -203,7 +208,9 @@ public interface JLibspotify extends Library {
 	sp_link sp_link_create_from_search(sp_search search);
 	sp_link sp_link_create_from_playlist(sp_playlist playlist);
 	sp_link sp_link_create_from_user(sp_user user);
-	int sp_link_as_string(sp_link link, String buffer, int buffer_size);
+	
+	int sp_link_as_string(sp_link link, Memory buffer, int buffer_size);
+	
 	int sp_link_type(sp_link link);
 	sp_track sp_link_as_track(sp_link link);
 	sp_album sp_link_as_album(sp_link link);
@@ -235,7 +242,7 @@ public interface JLibspotify extends Library {
 	// Session methods
 	int sp_session_create(sp_session_config config, PointerByReference sess);
 	void sp_session_release(sp_session session);
-	int sp_session_login(sp_session session, String username, String password);
+	void sp_session_login(sp_session session, String username, String password, boolean rememberMe);
 	sp_user sp_session_user(sp_session session);
 	void sp_session_logout(sp_session session);
 	int sp_session_connectionstate(sp_session session);
@@ -252,7 +259,21 @@ public interface JLibspotify extends Library {
 	int sp_session_num_friends(sp_session session);
 	sp_user sp_session_friend(sp_session session, int index);
 	
+	sp_playlistcontainer sp_session_playlistcontainer (sp_session session);
+	
 	// Error methods
 	String sp_error_message(int error);
 	
+	public static class Wrapper {
+		
+		public static String sp_link_create_from_playlist(sp_playlist playlist) {
+			sp_link link = JLibspotify.INSTANCE.sp_link_create_from_playlist(playlist);
+			Memory buffer = new Memory(255);
+			JLibspotify.INSTANCE.sp_link_as_string(link, buffer, 255);
+			String uri = buffer.getString(0, false);
+			JLibspotify.INSTANCE.sp_link_release(link);
+			return new String(uri);
+			
+		}
+	}
 }
